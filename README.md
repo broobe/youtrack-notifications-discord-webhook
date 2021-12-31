@@ -7,3 +7,7 @@ YouTrack currently has no decent way of sending webhook notifications to Discord
 3. Paste and save the contents of each JavaScript file from this project into the custom modules.
 4. Change the config file set up the integration.
 5. Test if the integration works by creating a new issue on YouTrack.
+
+## Functions
+- Notify all watchers of an issue in specific channels
+- 

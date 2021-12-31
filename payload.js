@@ -8,35 +8,34 @@ class Payload {
      * @constructor
      * @param {string} [message] A message that will be put in chat by the webhook.
      * @param {string} [username] The username of the webhook sender.
-     * @param {string} [avatarUrl] A URL pointing to an image to be used as the avatar.
      * @param {Embed[]} [embeds] An array of Embeds to send.
      */
-    constructor(message, username, avatarUrl, embeds) {
+    constructor(message, username, embeds) {
         this._message = message;
         this._username = username;
-        this._avatarUrl = avatarUrl;
         this._embeds = embeds || [];
     }
 
     /**
      * @param {string} message
      */
-    set message(message) {this._message = message;}
+    set message(message) {
+        this._message = message;
+    }
 
     /**
      * @param {string} username
      */
-    set username(username) {this._username = username;}
-
-    /**
-     * @param {string} avatarUrl
-     */
-    set avatarUrl(avatarUrl) {this._avatarUrl = avatarUrl;}
+    set username(username) {
+        this._username = username;
+    }
 
     /**
      * @param {Embed[]} embeds
      */
-    set embeds(embeds) {this._embeds = embeds;}
+    set embeds(embeds) {
+        this._embeds = embeds;
+    }
 
     /**
      * Adds an Embed to the webhook Payload.
@@ -54,7 +53,6 @@ class Payload {
         return {
             content: this._message,
             username: this._username,
-            avatar_url: this._avatarUrl,
             embeds: this._embeds
         };
     }
@@ -69,8 +67,7 @@ class Payload {
         try {
             let response = connection.postSync("", null, JSON.stringify(this));
             if (!response.isSuccess) console.warn("Discord webhook payload failed to send.\n" + response.toString());
-        }
-        catch(exception) {
+        } catch (exception) {
             console.error(exception);
         }
     }

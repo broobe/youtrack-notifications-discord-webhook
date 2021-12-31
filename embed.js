@@ -11,14 +11,14 @@ class Embed {
      * @param {string} [thumbnailUrl] A URL pointing to a thumbnail image.
      * @param {Footer} [footer]
      */
-	constructor(author, body, fields, imageUrl, thumbnailUrl, footer) {
+    constructor(author, body, fields, imageUrl, thumbnailUrl, footer) {
         this._author = author;
         this._body = body;
         this._fields = fields || [];
         this._imageUrl = imageUrl;
         this._thumbnailUrl = thumbnailUrl;
         this._footer = footer;
-	}
+    }
 
     /**
      * @param {Author} author
@@ -159,11 +159,11 @@ class Author {
      * @param {string} [url] URL of the Author's name.
      * @param {string} [iconUrl] The icon URL of the Author.
      */
-	constructor(name, url, iconUrl) {
+    constructor(name, url, iconUrl) {
         this._name = name;
         this._url = url;
         this._iconUrl = iconUrl;
-	}
+    }
 
     /**
      * @param {string} name
