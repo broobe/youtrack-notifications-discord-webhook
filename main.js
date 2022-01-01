@@ -4,7 +4,7 @@ const CONFIG = require("./config");
 const COLORS = require("./config_colors");
 const {Payload} = require("./payload");
 const {EVENTS} = require("./config_events");
-const {USERS} = require("./config_users");
+const {USERS_CONFIG, USERS} = require("./config_users");
 const {
     Embed,
     Body,
@@ -98,7 +98,9 @@ exports.rule = entities.Issue.onChange({
                 var watcherUsername = tag.owner.login;
                 for (var i = 0; i < USERS.length; i++) {
                     var user = USERS[i];
-                    if (user.youtrackUsername == watcherUsername) {
+                    // Only notify a user if they are in the list and not the current user
+                    if (user.youtrackUsername == watcherUsername
+                             && (USERS_CONFIG.NOTIFY_CURRENT || user.youtrackUsername != issue.updatedBy.login)) {
                         if(user.discordUserID) mentions += "<@" + user.discordUserID + ">\n";
                         if(user.webhookUrl) webhooks.push(user.webhookUrl);
                         break;

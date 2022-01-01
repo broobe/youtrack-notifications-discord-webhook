@@ -11,6 +11,10 @@ How to get the discord user id:
 https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-
 */
 
+const USERS_CONFIG = {
+    "NOTIFY_CURRENT": false // If true, the script will notify the user who triggered the event.
+};
+
 const USERS = [
     {
         "youtrackUsername": "member_1",
@@ -24,4 +28,4 @@ const USERS = [
     }
 ];
 
-module.exports = { USERS };
+module.exports = { USERS_CONFIG, USERS };
