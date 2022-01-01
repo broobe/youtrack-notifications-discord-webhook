@@ -87,24 +87,29 @@ exports.rule = entities.Issue.onChange({
 
         embed.footer = new Footer(CONFIG.SITE_NAME + " " + issue.project.name);
 
-        payload.addEmbed(embed);
+        let webhooks = [];
 
-        let webhooks = [
-            CONFIG.WEBHOOK_URL
-        ];
+        if(CONFIG.GENERAL_WEBHOOK_URL) webhooks.push(CONFIG.GENERAL_WEBHOOK_URL);
 
+        // Notify all watchers
+        var mentions = "";
         issue.tags.forEach(function (tag) {
             if (tag.name == "Star") {
                 var watcherUsername = tag.owner.login;
                 for (var i = 0; i < USERS.length; i++) {
                     var user = USERS[i];
                     if (user.youtrackUsername == watcherUsername) {
-                        webhooks.push(user.webhookUrl);
+                        if(user.discordUserID) mentions += "<@" + user.discordUserID + ">\n";
+                        if(user.webhookUrl) webhooks.push(user.webhookUrl);
                         break;
                     }
                 }
             }
         });
+        if(mentions.length > 0)
+            embed.addField(new Field("Watchers", mentions, false));
+
+        payload.addEmbed(embed);
 
         webhooks.forEach(function (url) {
             payload.send(url);

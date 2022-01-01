@@ -1,11 +1,8 @@
+// GENERAL_WEBHOOK_URL is optional
+
 module.exports = {
     YOUTRACK_URL: "https://example.youtrack.cloud",
     SITE_NAME: "MyCompany - ",
-
-    WEBHOOK_URL: "https://discord.com/api/webhooks/XXX",
     SENDER_NAME: "YouTrackBot",
-
-    COLOR_POSITIVE: "22C55E",
-    COLOR_REGULAR: "3093D1",
-    COLOR_NEGATIVE: "EF4444"
+    GENERAL_WEBHOOK_URL: "https://discord.com/api/webhooks/XXX"
 };
