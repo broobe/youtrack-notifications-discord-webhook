@@ -1,0 +1,6 @@
+module.exports = {
+    COLOR_POSITIVE: "22C55E",
+    COLOR_REGULAR: "3093D1",
+    COLOR_NEGATIVE: "EF4444",
+  	COLOR_WARNING: "FFEE58"
+};
