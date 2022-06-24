@@ -1,4 +1,4 @@
-# Discord Webhook Integration for YouTrack
+# YouTrack notifications on Discord
 YouTrack currently has no decent way of sending webhook notifications to Discord as of right now, so this project solves just that.
 
 ## Installation
@@ -8,11 +8,11 @@ YouTrack currently has no decent way of sending webhook notifications to Discord
 4. Change the config files according to your needs.
 5. Test if the integration works by creating a new issue on YouTrack.
 
-## Currently, can react to:
+## Currently, can react to
 - Stage changes
 - Assignee changes
 - Comment creations
 - Issue creations
 
-## Extra features:
+## Extra features
 - Watchers of an issue can be notified about events in their own channel
