@@ -17,6 +17,11 @@ exports.rule = entities.Issue.onChange({
         const issue = ctx.issue;
         const user = ctx.currentUser;
         const assignee = issue.fields['Assignee'] ;
+      
+      	if ( assignee == null ) {
+                 return;
+        }
+      
         const assignee_user = entities.User.findByLogin(assignee); // an entities.User or null
       
         if ( user.fullName == assignee_user.fullName ) {
